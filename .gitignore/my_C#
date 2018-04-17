@@ -1,0 +1,51 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace KMI
+{
+    class Program
+    {
+        static double BodyMassIndex(double ugis, double svoris)
+        {
+            double kmi = svoris / (ugis * ugis);
+            return kmi;
+        }
+        public void BodyGrade(double kmi)
+        {
+            if (kmi <18.5)
+            {
+                Console.WriteLine("Tavo svoris per mazas.");
+            } if (18.5 <= kmi && kmi < 25)
+            {
+                Console.WriteLine("Tavo svoris normalus.");
+            } if (25 <= kmi && kmi < 30)
+            {
+                Console.WriteLine("Tu turi antsvori.");
+            } if (30 <= kmi)
+            {
+                Console.WriteLine("Nutukimas!!!");
+            }                              
+        }
+
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Kuno mases indekso skaiciavimas.");
+            Console.WriteLine("--------------------------------------------");
+            Console.WriteLine("Iveskite svori kg: ");
+            double kg = double.Parse(Console.ReadLine());
+            Console.WriteLine("Iveskite ugi m:");
+            double m = double.Parse(Console.ReadLine());
+
+            double a = Program.BodyMassIndex(m,kg);
+            Program Body = new Program();
+                    
+            Console.WriteLine($"Jusu ugis: {m} cm., svoris: {kg} kg.\nJusu KMI:{a}");
+            Body.BodyGrade(a);
+
+            Console.ReadLine();
+        }
+    }
+}
